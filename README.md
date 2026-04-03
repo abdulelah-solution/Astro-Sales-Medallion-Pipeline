@@ -54,10 +54,10 @@ The pipeline is structured into three distinct layers to ensure data integrity a
 │       └── gold/               # Dimension & Fact materialization
 ├── tests/                      # Unit tests for DAG integrity
 └── Dockerfile                  # Containerized environment setup
-
+```
 ---
 
-🚀 How to Run
+## 🚀 How to Run
 1. Prerequisites: Install Astro CLI.
 
 2. Setup: Clone the repo and add your .env file with SQL Server credentials.
@@ -66,5 +66,19 @@ The pipeline is structured into three distinct layers to ensure data integrity a
 
 4. Monitor: Access the Airflow UI at localhost:8080 to trigger the elt_pipeline_dag_v1.
 
-👨‍💻 Author
-Abdulelah Data Engineer | Finance & Supply Chain Professional 📍 Riyadh, Saudi Arabia
+---
+
+## 👨‍💻 Author
+Abdulelah
+Data Engineer | Finance & Supply Chain Professional 📍 Riyadh, Saudi Arabia
+
+---
+
+## 📬 Contact & Connect
+I am currently looking for new opportunities in Data Engineering and Finance/Supply Chain Analytics in the Riyadh region. Feel free to reach out!
+
+  ● LinkedIn: Abdulelah Muhmin
+
+  ● GitHub: @abdulelah-solution
+
+  ● Location: Riyadh, Saudi Arabia 🇸🇦
