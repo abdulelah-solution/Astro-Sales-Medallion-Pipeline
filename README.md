@@ -1,82 +1,70 @@
-🚀 Medallion Data Warehouse: From Chaos to Clarity
-"Data is the new oil, but only if it's refined." This project is a journey of discipline and technical growth—a complete end-to-end Data Warehouse solution built from the ground up, transforming raw, messy CSV files into a structured Gold-standard Star Schema.
+# 🚀 Unified Sales Data Platform: Medallion Architecture with Astro Airflow
+
+[![Airflow](https://img.shields.io/badge/Orchestration-Apache%20Airflow%202.x-red.svg)](https://airflow.apache.org/)
+[![Astro CLI](https://img.shields.io/badge/Environment-Astro%20CLI-blue.svg)](https://www.astronomer.io/docs/cloud/stable/develop/astro-cli)
+[![SQL Server](https://img.shields.io/badge/Database-MS%20SQL%20Server-lightgrey.svg)](https://www.microsoft.com/en-us/sql-server/)
+[![Python](https://img.shields.io/badge/Language-Python%203.12-yellow.svg)](https://www.python.org/)
+
+## 🌟 Project Overview
+Welcome to the upgraded version of the **Unified Sales Data Warehouse**. This project has evolved from a collection of standalone scripts into a robust, production-ready **ELT Pipeline**. 
+
+By leveraging the **Medallion Architecture** and **Astro CLI (Apache Airflow)**, this platform automates the ingestion, transformation, and materialization of sales data from disparate CRM and ERP systems into a highly optimized Star Schema for Business Intelligence.
 
 ---
 
-🌟 The Vision
-The goal was clear: Take fragmented data from two different sources (CRM and ERP) and build a robust, automated pipeline. This project implements the Medallion Architecture, ensuring data quality at every step:
-    ◉ Bronze: Raw ingestion of source files.
+## 🏗️ Architecture: The Medallion Pattern
+The pipeline is structured into three distinct layers to ensure data integrity and scalability:
 
-    ◉ Silver: Cleaning, standardizing, and reconciling data.
+### 🥉 Bronze (Raw Layer)
+- **Source:** Automated CSV ingestion from multiple source systems (CRM & ERP).
+- **Process:** Validates file existence, handles empty datasets, and injects technical metadata (`dwh_load_date`).
+- **Storage:** Staged in SQL Server as raw-identical tables.
 
-    ◉ Gold: Strategic modeling for BI and Analytics.
+### 🥈 Silver (Cleansing & Integration Layer)
+- **Process:** Executes modular SQL scripts to clean, cast, and unify data.
+- **Logic:** Handles data type conversions, deduplication, and standardizes formats across different systems.
 
----
-
-🏗️ Project Architecture & Folder Structure
-Organization is the key to scalability. Here is how the project is structured:
-dwh_database/ 
-├── data/               # Source CSV files (CRM & ERP) + Application Logs
-├── sql_scripts/
-│   ├── ddl/            # Database and Schema initialization scripts
-│   ├── silver/         # Transformation logic (Cleaning & Harmonization)
-│   │   ├── crm/        # CRM-specific staging scripts
-│   │   └── erp/        # ERP-specific staging scripts
-│   └── gold/           # Final Star Schema (Dimensions & Facts)
-├── src/                # Python Core: Database utilities & Orchestration logic
-├── main.py             # The Maestro: One-click pipeline execution
-├── .env                # Secure Environment variables
-└── requirements.txt    # Project dependencies
+### 🥇 Gold (Analytics Layer)
+- **Process:** Materializes the final **Star Schema** (Fact & Dimension tables).
+- **Goal:** Provides a consumption-ready environment for PowerBI, Excel, and advanced financial reporting.
 
 ---
 
-🛠️ Tech Stack & Key Features
-    ◉ Python & SQLAlchemy: For automated orchestration and database connectivity.
-
-    ◉ SQL Server (T-SQL): The powerhouse for data transformations and modeling.
-
-    ◉ Medallion Architecture: Three-layer approach for superior data quality.
-
-    ◉ Data Reconciliation: Advanced logic to fix missing prices, quantities, and dates.
-
-    ◉ SCD Type 2 Ready: Managing product history and active versions.
+## 🛠️ Tech Stack & Key Features
+- **Astro CLI:** Containerized Airflow environment for consistent deployment.
+- **Dynamic Task Generation:** Automatically detects new data sources via `YAML` configuration.
+- **Defensive Programming:** Robust error handling with `SQLAlchemy` and `Pandas` to prevent pipeline breaks.
+- **Atomic Transactions:** Uses `engine.begin()` to ensure "All-or-Nothing" SQL executions.
+- **Medallion Orchestrator:** A unified Python utility module managing the full data lifecycle.
 
 ---
 
-🚀 How to Run the Pipeline
-    1. Clone the Repository.
-
-    2. Configure Environment: Create a .env file with your SQL Server credentials.
-
-    3. Setup Database: Execute /sql_scripts/ddl/db_and_schemas.sql.
-
-    4. Execute: Simply run:
-    python main.py
-
-    5. Monitor: Check the data/app.log to see the live progress of each phase.
-
----
-
-📈 The Journey So Far (Version 1.0)
-This project represents more than just technical skills; it represents discipline. Every line of code was written with a focus on:
-    ◉ Quality: No "garbage" data enters the Gold layer.
-
-    ◉ Consistency: Harmonizing different systems (CRM vs ERP) into a single source of truth.
-
-    ◉ Professionalism: Following industry standards in naming, documentation, and folder structure.
+## 📂 Project Structure
+```bash
+├── dags/
+│   └── elt_pipeline.py         # The Maestro: Orchestrates all tasks
+├── include/
+│   ├── config/
+│   │   └── sources.yaml        # Dynamic source management
+│   ├── python/
+│   │   ├── config.py           # Centralized logging & DB engine
+│   │   └── database_utils.py   # Core ELT utility functions
+│   └── sql/
+│       ├── silver/             # Transformation logic (CRM/ERP)
+│       └── gold/               # Dimension & Fact materialization
+├── tests/                      # Unit tests for DAG integrity
+└── Dockerfile                  # Containerized environment setup
 
 ---
 
-🔮 What’s Next?
-The journey doesn't stop here. Version 2.0 is already on the horizon:
-◉ ☁️ Cloud Integration: Moving the warehouse to a cloud environment.
+🚀 How to Run
+1. Prerequisites: Install Astro CLI.
 
-◉ ⚙️ Airflow Orchestration: Transitioning from simple Python scripts to advanced workflow management.
+2. Setup: Clone the repo and add your .env file with SQL Server credentials.
 
-◉ 📊 Dashboarding: Connecting the Gold layer to Power BI for visual storytelling.
+3. Start: Run astro dev start.
 
----
+4. Monitor: Access the Airflow UI at localhost:8080 to trigger the elt_pipeline_dag_v1.
 
-✍️ About the Author
-Abdulelah – A Data Engineer in the making, driven by curiosity and fueled by discipline. This project is just the beginning.
-"I am coming, and the best is yet to be, by the will of Allah."
+👨‍💻 Author
+Abdulelah Data Engineer | Finance & Supply Chain Professional 📍 Riyadh, Saudi Arabia
