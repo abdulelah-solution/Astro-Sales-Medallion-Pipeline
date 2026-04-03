@@ -1,11 +1,15 @@
-# Database logs and temporary files
-data/*.log
+# Python bytecode
+__pycache__/
+*.pyc
 
-# Python bytecode and cache
-src/__pycache__/
+# Astro CLI
+.astro/
 
-# Python virtual environment
-venv/
-
-# Environment variables (Sensitive info)
+# Local Environment / Secrets
 .env
+include/data/raw/*.csv
+include/sql/ddl/
+
+# OS generated files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,27 @@
+database_config:
+  target_schema: 'bronze'
+
+data_sources:
+  - system_name: 'crm'
+    source_path: 'include/data/raw/cust_info.csv'
+    target_table: 'crm_cust_info'
+  
+  - system_name: 'crm'
+    source_path: 'include/data/raw/prd_info.csv'
+    target_table: 'crm_prd_info'
+
+  - system_name: 'crm'
+    source_path: 'include/data/raw/sales_details.csv'
+    target_table: 'crm_sales_details'
+
+  - system_name: 'erp'
+    source_path: 'include/data/raw/CUST_AZ12.csv'
+    target_table: 'erp_cust_az12'
+
+  - system_name: 'erp'
+    source_path: 'include/data/raw/LOC_A101.csv'
+    target_table: 'erp_loc_a101'
+
+  - system_name: 'erp'
+    source_path: 'include/data/raw/PX_CAT_G1V2.csv'
+    target_table: 'erp_px_cat_g1v2'
