@@ -77,8 +77,6 @@ Data Engineer | Finance & Supply Chain Professional 📍 Riyadh, Saudi Arabia
 ## 📬 Contact & Connect
 I am currently looking for new opportunities in Data Engineering and Finance/Supply Chain Analytics in the Riyadh region. Feel free to reach out!
 
-  ● LinkedIn: Abdulelah Muhmin
+- **LinkedIn:** [**Abdulelah's Profile**](https://www.linkedin.com/in/abdulelah-muhmin-a215a41a1/)
 
-  ● GitHub: @abdulelah-solution
-
-  ● Location: Riyadh, Saudi Arabia 🇸🇦
+- **GitHub:** [**Abdulelah's Repositories**](https://github.com/abdulelah-solution)
